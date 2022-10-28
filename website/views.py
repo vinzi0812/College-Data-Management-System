@@ -6,7 +6,17 @@ from . import db
 import json
 views=Blueprint('views',__name__)
 
-@views.route('/student')
+@views.route('/student-profile')
 @login_required
-def Student():
-    return render_template("Student.html",user=current_user)
+def student_profile():
+    return render_template("student_profile.html",user=current_user)
+
+@views.route('/student-courses')
+@login_required
+def student_courses():
+    return render_template("student_courses.html",user=current_user)
+
+@views.route('/student-grades')
+@login_required
+def student_grades():
+    return render_template("student_grades.html",user=current_user)

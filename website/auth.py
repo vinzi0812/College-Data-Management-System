@@ -15,5 +15,5 @@ def Login():
         if user:
             if check_password_hash(user.password,password):
                 login_user(user,remember=True)
-                return redirect(url_for('views.Student'))
+                return redirect(url_for('views.student_profile'))
     return render_template("Login.html",user=current_user)
