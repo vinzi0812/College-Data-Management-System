@@ -29,43 +29,20 @@
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-dark">
-                            <th scope="col">Sr.No</th>
+                            <th scope="col">Course Code</th>
                             <th scope="col">Course Name</th>
                             <th scope="col">Grades</th>
 
                         </tr>
                     </thead>
                     <tbody>
+                        {% for cr in user.student_course %}
                         <tr>
-                            <td>1</td>
-                            <td>Course 1</td>
-                            <td>80</td>
+                            <td>{{cr.Course_Code}}</td>
+                            <td>{{cr.takes_course.Course_Name}}</td>
+                            <td>{{cr.grades}}</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Course 2</td>
-                            <td>95</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Course 3</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Course 4</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Course 5</td>
-                            <td>70</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Course 6</td>
-                            <td>90</td>
-                        </tr>
+                        {%endfor%}
                     </tbody>
                 </table>
             </div>

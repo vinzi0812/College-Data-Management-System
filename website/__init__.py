@@ -16,7 +16,7 @@ def create_app():
     from .auth import auth
     app.register_blueprint(views,url_prefix='/')
     app.register_blueprint(auth,url_prefix='/')
-    from .models import User,Note
+    from .models import student
     
     
     login_manager=LoginManager()
@@ -24,8 +24,8 @@ def create_app():
     login_manager.init_app(app)
     
     @login_manager.user_loader
-    def load_user(id):
-        return User.query.get(int(id))
+    def load_user(UID):
+        return student.query.get(int(UID))
     
     return app
 
