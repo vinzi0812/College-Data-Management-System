@@ -13,7 +13,7 @@ def Login():
         password=request.form.get('password')
         user=User.query.filter_by(email=email).first()
         if user:
-            if check_password_hash(user.password,password):
+            if (user.password==password):#do hashing here
                 login_user(user,remember=True)
                 return redirect(url_for('views.student_profile'))
     return render_template("Login.html",user=current_user)

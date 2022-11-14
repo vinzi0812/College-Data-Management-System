@@ -8,7 +8,8 @@ db=SQLAlchemy()
 def create_app():
     app=Flask(__name__)
     app.config['SECRET_KEY']="yay"
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/users'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/users'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql12530103:34PprA8Jg5@sql12.freesqldatabase.com:3306/sql12530103'
     db.init_app(app)
     
     from .views import views

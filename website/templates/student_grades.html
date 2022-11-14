@@ -1,10 +1,11 @@
 {% extends "Student.html" %}
 {% block title %}Grades{% endblock %}
 {% block content %}
+<!--
 <div>
     <h1> Grades</h1>
         <p >
-            Course 1: Grade 1 <!-- user.grade-->
+            Course 1: Grade 1 
             <br>
             <br>
             Course 2: Grade 2
@@ -12,5 +13,64 @@
             <br>            
             Course 3: Grade 3 
         </p>
+</div>
+-->
+
+
+<div class="content align-items-center w-100 ">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4 text-dark">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Grades</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Sr.No</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Grades</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Course 1</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Course 2</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Course 3</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Course 4</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Course 5</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Course 6</td>
+                            <td>90</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
 </div>
 {% endblock %}
