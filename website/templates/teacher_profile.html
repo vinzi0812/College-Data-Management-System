@@ -1,0 +1,88 @@
+{% extends "Teacher.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<!--
+<div>
+    <h1> PROFILE</h1>
+        <p >
+            Name: Omkar Rao 
+            <br>
+            <br>
+            <br>
+            <br>
+            UID: 2021300102
+            <br>
+            <br>
+            <br>
+            <br>
+            Branch: Computer Engineering
+        </p>
+</div>
+-->
+
+<div class="content align-items-center w-100 ">
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4 ">
+        <div class="row g-4">
+            <div class="col-sm-6 col-xl-3 mb-3">
+                <div
+                    class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bg-white">
+                    <div class="ms-3">
+                        <p class="mb-2">Name</p>
+                        <h6 class="mb-0">{{user.Full_Name}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 mb-3">
+                <div
+                    class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bg-white">
+                    <div class="ms-3">
+                        <p class=" ms-3 mb-2">Teacher Code-{{user.Teacher_Code}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 mb-3">
+                <div
+                    class="bg-secondary rounded d-flex align-items-center justify-content-between p-4 bg-white">
+                    <div class="ms-3">
+                        <p class="mb-2">Department</p>
+                        <h6 class="mb-0">{{user.Dept_Name}}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+
+    <!-- Sales Chart Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6 mb-3">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Personal Information</h6>
+                    </div>
+                    <div class="text-left">
+                        <h5> Full_Name : {{user.Full_Name}}</h5>
+                        <h5> Mothers_Name : {{user.Mothers_Name}}</h5>
+                        <h5> Fathers_Name : {{user.Fathers_Name}}</h5>
+                        <h5> Email : {{user.email}}</h5>
+                        <h5> DOB : {{user.DOB}}</h5>
+                        <h5> Age : {{user.Age}}</h5>
+                        <h5> Phone_No : {{user.Phone_Number}}</h5>            
+                        <h5> Address : {{user.Address}}</h5>
+                        <h5> Experience : {{user.Experience}}</h5>
+                        <h5> Qualification : {{user.Qualification}}</h5>
+                        <h5> Attendance : {{user.Attendance}}</h5>
+                        <h5> Course Teacher : {{user.Course_Code}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sales Chart End -->
+
+</div>
+{% endblock %}

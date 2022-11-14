@@ -28,56 +28,24 @@
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-dark">
-                            <th scope="col">Sr.No</th>
+                            <th scope="col">Course Code</th>
                             <th scope="col">Course Name</th>
-                            <th scope="col">Credits</th>
+                            <th scope="col">Sem No</th>
                             <th scope="col">Total Credits</th>
                             <th scope="col">Other Info</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for cr in user.student_course %}
                         <tr>
-                            <td>1</td>
-                            <td>Course 1</td>
-                            <td>8</td>
-                            <td>10</td>
+                            <td>{{cr.takes_course.Course_Code}}</td> <!--maybe query using data found in course code-->
+                            <td>{{cr.takes_course.Course_Name}}</td>
+                            <td>{{cr.takes_course.Sem_No}}</td>
+                            <td>{{cr.takes_course.Credits}}</td>
                             <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Course 2</td>
-                            <td>7.5</td>
-                            <td>10</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Course 3</td>
-                            <td>8.6</td>
-                            <td>10</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Course 4</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Course 5</td>
-                            <td>10</td>
-                            <td>10</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Course 6</td>
-                            <td>9.1</td>
-                            <td>10</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
+                        {% endfor %}
+                        
                     </tbody>
                 </table>
             </div>
