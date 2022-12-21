@@ -7,7 +7,6 @@ class Note(db.Model):
     data=db.Column(db.String(1000))
     date=db.Column(db.DateTime(timezone=True),default=func.now())
     user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
-    
 
 class User(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
@@ -18,7 +17,6 @@ class User(db.Model,UserMixin):
 
 class student(db.Model,UserMixin):
     UID=db.Column(db.Integer,primary_key=True)
-    
     Full_Name=db.Column(db.String(50))
     Mothers_Name=db.Column(db.String(20))
     Fathers_Name=db.Column(db.String(20))
@@ -35,14 +33,12 @@ class student(db.Model,UserMixin):
 
     college_email=db.Column(db.String(30))
     college_password=db.Column(db.String(100))
-    student_course=db.relationship('Takes')
-#primaryjoin="student.UID==takes.UID"
-    #FOREIGN KEY (Branch) REFERENCES Department(Dept_Name)
+    student_course=db.relationship('takes')
     def get_id(self):
         return (self.UID)
 
 class staff(db.Model,UserMixin):
-    Teacher_Code=db.Column(db.String(5),primary_key = True)
+    Teacher_Code=db.Column(db.Integer,primary_key = True)
     Full_Name=db.Column(db.String(50))
     Mothers_Name=db.Column(db.String(20))
     Fathers_Name=db.Column(db.String(20))
@@ -55,13 +51,21 @@ class staff(db.Model,UserMixin):
     Qualification=db.Column(db.String(20))
     Experience=db.Column(db.Integer)
     Attendance=db.Column(db.Float)
-    Dept_Name=db.Column(db.String(40), db.ForeignKey('Department.Dept_Name'))
+    Dept_Name=db.Column(db.String(40), db.ForeignKey('department.Dept_Name'))
     Course_Code=db.Column(db.String(6), db.ForeignKey('courses.Course_Code'))
-    
     def get_id(self):
         return (self.Teacher_Code)
 
-class Courses(db.Model):
+class admin(db.Model,UserMixin):
+    Admin_Code=db.Column(db.Integer,primary_key = True)
+    Full_Name=db.Column(db.String(50))
+    Phone_No=db.Column(db.Integer)
+    admin_email=db.Column(db.String(30))
+    admin_password=db.Column(db.String(20))
+    def get_id(self):
+        return (self.Admin_Code)
+
+class courses(db.Model):
     Course_Name=db.Column(db.String(30))
     Course_Code=db.Column(db.String(6),primary_key=True)
     Sem_No=db.Column(db.Integer)
@@ -69,18 +73,18 @@ class Courses(db.Model):
     Syllabus=db.Column(db.String(100))
     Duration=db.Column(db.Integer)
     Students_enrolled=db.Column(db.Integer)
-    course_taken=db.relationship('Takes',back_populates="takes_course")
+    course_taken=db.relationship('takes',back_populates="takes_course")
     def get_id(self):
         return (self.Course_Code)
 #primaryjoin="courses.Course_Code==takes.Course_Code"
-class Takes(db.Model):
+class takes(db.Model):
     id=db.Column(db.Integer,primary_key=True,autoincrement=True)
     UID=db.Column(db.Integer,db.ForeignKey('student.UID'))
     Course_Code=db.Column(db.String(6),db.ForeignKey('courses.Course_Code'))
-    grades=db.Column(db.Float)
-    takes_course=db.relationship('Courses',back_populates="course_taken")
+    grades=db.Column(db.Integer)
+    takes_course=db.relationship('courses',back_populates="course_taken")
 
-class Department(db.Model):
+class department(db.Model):
     Dept_Name=db.Column(db.String(40), primary_key=True)
     Avg_Package=db.Column(db.Float)
     Floor_Occupied=db.Column(db.Integer)

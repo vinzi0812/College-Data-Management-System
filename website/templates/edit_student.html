@@ -1,0 +1,66 @@
+{% extends "Teacher.html" %}
+{% block title %}Edit Grades{% endblock %}
+{% block content %}
+<!--
+<div>
+    <h1> Grades</h1>
+        <p >
+            Course 1: Grade 1 
+            <br>
+            <br>
+            Course 2: Grade 2
+            <br>
+            <br>            
+            Course 3: Grade 3 
+        </p>
+</div>
+-->
+
+
+<div class="content align-items-center w-100 ">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4 text-dark">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Students</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Full Name</th>
+                            <th scope="col">UID</th>
+                            <th scope="col">Branch</th>
+                            <th scope="col">Grades</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="POST">
+                            <tr>
+                                {% for id in takes %}
+                                {% if id.Course_Code == Course_Code and id.UID == student_id%}
+                                    {% for student in students %}
+                                        {% if student.UID == student_id %}
+                                            <tr>
+                                                <td>{{student.Full_Name}}</td>
+                                                <td>{{student.UID}}</td>
+                                                <td>{{student.Branch}}</td>
+                                                <td><input type="number" class="form-control" name="grades" id="grades"></td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </tr>
+                            <button type="submit" class="btn btn-primary">Submit</button> 
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+</div>
+{% endblock %}

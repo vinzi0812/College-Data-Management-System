@@ -1,5 +1,5 @@
-{% extends "Student.html" %}
-{% block title %}Grades{% endblock %}
+{% extends "Admin.html" %}
+{% block title %}View Staff{% endblock %}
 {% block content %}
 <!--
 <div>
@@ -23,24 +23,29 @@
     <div class="container-fluid pt-4 px-4 text-dark">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Grades</h6>
+                <h6 class="mb-0">Staff</h6>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-dark">
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Teacher Code</th>
+                            <th scope="col">Department</th>
                             <th scope="col">Course Code</th>
-                            <th scope="col">Grades</th>
-
+                            <th scope="col">Salary</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for cr in user.student_course %}
-                        <tr>
-                            <td>{{cr.Course_Code}}</td>
-                            <td>{{cr.grades}}</td>
-                        </tr>
-                        {%endfor%}
+                            {% for staff in staff %}
+                                    <tr>
+                                        <td>{{staff.Full_Name}}</td>
+                                        <td>{{staff.Teacher_Code}}</td>
+                                        <td>{{staff.Dept_Name}}</td>
+                                        <td>{{staff.Course_Code}}</td>
+                                        <td>{{staff.Salary}}</td>
+                                    </tr>
+                            {% endfor %}
                     </tbody>
                 </table>
             </div>

@@ -1,0 +1,62 @@
+{% extends "Teacher.html" %}
+{% block title %}View Students{% endblock %}
+{% block content %}
+<!--
+<div>
+    <h1> Grades</h1>
+        <p >
+            Course 1: Grade 1 
+            <br>
+            <br>
+            Course 2: Grade 2
+            <br>
+            <br>            
+            Course 3: Grade 3 
+        </p>
+</div>
+-->
+
+
+<div class="content align-items-center w-100 ">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4 text-dark">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Students</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Full Name</th>
+                            <th scope="col">UID</th>
+                            <th scope="col">Branch</th>
+                            <th scope="col">Grades</th>
+                            <th scope="col">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for id in takes %}
+                        {% if id.Course_Code == user.Course_Code %}
+                            {% for student in students %}
+                                {% if student.UID == id.UID %}
+                                    <tr>
+                                        <td>{{student.Full_Name}}</td>
+                                        <td>{{student.UID}}</td>
+                                        <td>{{student.Branch}}</td>
+                                        <td>{{id.grades}}</td>
+                                        <td><a href="/edit-student/{{student.UID}}/{{id.Course_Code}}">Edit</a></td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+</div>
+{% endblock %}

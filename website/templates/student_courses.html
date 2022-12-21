@@ -29,21 +29,15 @@
                     <thead>
                         <tr class="text-dark">
                             <th scope="col">Course Code</th>
-                            <th scope="col">Course Name</th>
-                            <th scope="col">Sem No</th>
-                            <th scope="col">Total Credits</th>
-                            <th scope="col">Other Info</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for cr in user.student_course %}
-                        <tr>
-                            <td>{{cr.takes_course.Course_Code}}</td> <!--maybe query using data found in course code-->
-                            <td>{{cr.takes_course.Course_Name}}</td>
-                            <td>{{cr.takes_course.Sem_No}}</td>
-                            <td>{{cr.takes_course.Credits}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
+                        {% for takes in takes %}
+                            {% if takes.UID == user.UID%}
+                            <tr>
+                                <td>{{takes.Course_Code}}</td> <!--maybe query using data found in course code-->
+                            </tr>
+                            {% endif %}
                         {% endfor %}
                         
                     </tbody>
